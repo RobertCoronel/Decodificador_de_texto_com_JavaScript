@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="assets/style.css">
+		
+		<title>O enigma</title>
+	
+	</head>
+	
+	<body>
+		<main>
+			<section>
+				<div id="input"><input onkeyup="escondeDiv()" type="text" id="escreva" placeholder="Escreva o segredo"></div>
+				<div id="posicao">
+					<div id="alerta">
+						<img src="assets/img/alerta.png" alt="Exclamação">
+						Apenas letras minusculas e sem acentos.
+					</div>
+
+					<div id="button">
+						<input type="button" value="Criar enigma" id="buton_criptografia">
+						<input type="button" value="Solucionar o enigma" id="buton_descriptografia">
+					</div>
+
+				</div>
+			</section>
+
+			<aside>
+
+				<div id="solucao">
+					<img src="assets/img/criptografado.png" alt="Logo criptografia">
+					<h3>NENHUMA MENSAGEM ENCONTRADA</h3>
+					<p>Digite um texto que você deseja criptografar ou descriptografar</p>
+					
+				</div>
+
+				<div id="escrita">
+
+					<textarea id="show" cols="40" rows="6"></textarea>
+					<button id="copiar">Copiar</button>
+					
+				</div>
+			</aside>
+
+		</main>
+
+		<script src="assets/main.js"></script>
+		
+	</body>
+</html>
