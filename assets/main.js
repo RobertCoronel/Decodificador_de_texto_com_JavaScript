@@ -1,92 +1,126 @@
+// ---- Seleção dos elementos ---- //
+const btnCriptografar = document.querySelector(".btn-criptografar");
+const txtCriptografar = document.querySelector(".criptografar");
+const aviso = document.querySelector(".texto-aviso");
+const resposta = document.querySelector(".avaliar");
+const conteudo = document.querySelector(".cartao-conteiner");
+const btnCopiar = document.querySelector(".btn-copiar");
+const btnDescriptografar = document.querySelector(".btn-decriptar");
 
-window.oninput = function(){
-    document.querySelector('#show').value = document.querySelector('#escreva').value;
-};
+// ---- Botão de criptografar ---- //
+btnCriptografar.addEventListener('click', e => {
+    e.preventDefault();
+    let texto = txtCriptografar.value;
+    let txt = texto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, " " );
+    
+    if(texto == "") {
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#ffff"
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "O campo de texto não deve estar vazio";
 
-
-document.getElementById("copiar").addEventListener("click",function(){
-    document.getElementById("show").select();
-    document.execCommand('copy');
-});
-
-
-function escondeDiv() {
-    if(document.getElementById('escreva').value.length <= 0) {
-        document.getElementById('escrita').style.display = "none"; 
-        document.getElementById('solucao').style.display = "block";
-    } else {
-        document.getElementById('solucao').style.display = "none";
-        document.getElementById('escrita').style.display = "block"; 
+        setTimeout(() => {
+            aviso.removeAttribute("style")
+        },1500);
     }
-};
 
+    else if(texto !== txt) {
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#ffff"
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "Não deve ter acentos e caracteres especiais";
 
-var letras = [
-    ["e", "1247+sfd466e4fw84658ef#"],
-    ["i", "adssf6ed456ef6effqwes"],
-    ["o", "sfdwef6414fe6"],
-    ["a", "94s8wef3154fae5df"],
-    ["u", "w64wef45wef4e"],
-];
-
-
-function encripta(texto) {
-letras.forEach((element) => {
-    var textoSearch = element[0];
-    var textoReplace = element[1];
-    texto = texto.replaceAll(textoSearch, textoReplace);
-});
-return texto;
-}
-
-
-function desencripta(texto) {
- letras.forEach((element) => {
-    var textoSearch = element[1];
-    var textoReplace = element[0];
-    texto = texto.replaceAll(textoSearch, textoReplace);
- });
- return texto;
-}
-
-
-document.getElementById("buton_descriptografia").addEventListener("click", function() {
-    var textoNormal = document.getElementById("escreva").value;
-        if(!entradaValida(textoNormal)){
-            return;
-        }
-    var textoDecodificado = desencripta(textoNormal);
-    document.getElementById("show").value = textoDecodificado;
-});
-
-
-document.getElementById("buton_criptografia").addEventListener("click", function() {
-    var textoCodificado = document.getElementById("escreva").value;
-        if(!entradaValida(textoCodificado)) {
-            return;
-        }
-    var textoDecodificado = encripta(textoCodificado);
-    document.getElementById("show").value = textoDecodificado;
-});
-
-
-function entradaValida(texto){
-    if(texto === ""){
-        alert("Digite alguma coisa!!");
-        return false;
+        setTimeout(() => {
+            aviso.removeAttribute("style")
+        },1500);
     }
-        if(texto.toLowerCase() != texto){
-            alert("Só pode usar letras minusculas!");
-            return false;
-        }
-    const carecteresAcentudados = "ÁÉÍÓÚáéíóúâêîôûàèìòùÇç";
-    var carecteresAcentos = carecteresAcentudados.split("");
 
-        carecteresAcentos.forEach(function (carectere){
-            if(texto.includes(carectere)) {
-                alert("Não pode usar acentos!");
-                return false;
-            }
-        });
-        return true;
-}
+    else if(texto !== texto.toLowerCase()) {
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#ffff"
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "O texto deve estar todo em minúsculas.";
+
+        setTimeout(() => {
+            aviso.removeAttribute("style")
+        },1500);
+    }
+
+    else {
+        texto = texto.replace(/e/mg, "enter");
+        texto = texto.replace(/i/mg, "imes");
+        texto = texto.replace(/a/mg, "ai");
+        texto = texto.replace(/o/mg, "ober");
+        texto = texto.replace(/u/mg, "ufat");
+
+        resposta.innerHTML = texto;
+        btnCopiar.style.visibility = "inherit";
+        conteudo.remove();
+    }
+});
+
+
+// ---- Botão de Descriptografia ---- //
+btnDescriptografar.addEventListener('click', e => {
+    e.preventDefault();
+    let texto = txtCriptografar.value;
+    let txt = texto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, " " );
+    
+    if(texto == "") {
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#ffff"
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "O campo de texto não deve estar vazio";
+
+        setTimeout(() => {
+            aviso.removeAttribute("style")
+        },1500);
+    }
+
+    else if(texto !== txt) {
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#ffff"
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "Não deve ter acentos e caracteres especiais";
+
+        setTimeout(() => {
+            aviso.removeAttribute("style")
+        },1500);
+    }
+
+    else if(texto !== texto.toLowerCase()) {
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#ffff"
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "O texto deve estar todo em minúsculas.";
+
+        setTimeout(() => {
+            aviso.removeAttribute("style")
+        },1500);
+    }
+
+    else {
+        texto = texto.replace(/enter/mg, "e");
+        texto = texto.replace(/imes/mg, "i");
+        texto = texto.replace(/ai/mg, "a");
+        texto = texto.replace(/ober/mg, "o");
+        texto = texto.replace(/ufat/mg, "u");
+
+        resposta.innerHTML = texto;
+        btnCopiar.style.visibility = "inherit";
+        conteudo.remove();
+    }
+});
+
+// ---- Botão de Copiar ---- //
+btnCopiar.addEventListener('click', e => {
+    e.preventDefault();
+    let copiar = resposta;
+    copiar.select();
+    document.execCommand("copy");
+});
+
+/*
+muito bom seu projeto de criptografia e leitura de dados
+grande trabalho
+*/
