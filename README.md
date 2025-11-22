@@ -31,17 +31,17 @@ Da mesma forma, o texto criptografado pode ser revertido aplicando as regras ao 
 
 ## ▶️ Como usar?
 
-Abra o arquivo index.html no seu navegador 🌐
+I.- Abra o arquivo index.html no seu navegador 🌐
 
-Digite seu texto no campo principal ✍️
+II. Digite seu texto no campo principal ✍️
 
-Clique em:
-🔵 Criptografar!
-⚪ Decriptar!
+III. Clique em:
+  - 🔵 Criptografar!
+  - ⚪ Decriptar!
 
-Veja o resultado aparecer no painel lateral 👀
+IV. Veja o resultado aparecer no painel lateral 👀
 
-Use o botão de copiar para reutilizar a mensagem 📋
+V. Use o botão de copiar para reutilizar a mensagem 📋
 
 📸 Interface do projeto:
 
