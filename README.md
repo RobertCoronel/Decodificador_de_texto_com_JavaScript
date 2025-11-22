@@ -2,7 +2,7 @@
 Este projeto é uma aplicação web que criptografa e descriptografa textos usando regras simples de substituição de vogais.
 Ele foi desenvolvido utilizando HTML, CSS e JavaScript, e roda diretamente no navegador.
 
-<img width="886" height="474" alt="image" src="https://github.com/user-attachments/assets/8fcadc36-bcf0-48fe-867d-5244402289c5" />
+<img width="886" height="474" alt="image" src="/assets/img/capa.png" />
 
 ## 📝 Descrição
 Este projeto é uma aplicação web que permite:
@@ -45,7 +45,7 @@ Use o botão de copiar para reutilizar a mensagem 📋
 
 📸 Interface do projeto:
 
-
+<img alt="teste" src="/assets/img/teste.gif" width="100%" style="height:auto;" />
 
 ## 🛠️ Tecnologias utilizadas
 
